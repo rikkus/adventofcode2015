@@ -1,0 +1,1 @@
+input.Aggregate(0, (acc, brace) => acc + (brace == '(' ? 1 : -1))
