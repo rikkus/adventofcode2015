@@ -128,35 +128,16 @@ void Main()
 
 	for (int i = 0; i < Seconds; i++)
 	{
-		var leaders = new List<Reindeer>();
-		var currentLeaderDistance = 0;
-
 		foreach (var r in reindeer)
 		{
 			r.DoOneSecondOfActivity();
 		}
 
-		foreach (var r in reindeer)
-		{
-			if (r.Distance >= currentLeaderDistance)
-			{
-				if (r.Distance > currentLeaderDistance)
-				{
-					leaders.Clear();
-				}
-				
-				leaders.Add(r);
-				currentLeaderDistance = r.Distance;
-			}
-		}
-
-		foreach (var r in leaders)
+		foreach (var r in reindeer.MaxBy(r => r.Distance))
 		{
 			++r.Points;
 		}
 	}
-
-	reindeer.Dump();
 
 	reindeer.MaxBy(r => r.Distance).Dump();
 	reindeer.MaxBy(r => r.Points).Dump();
