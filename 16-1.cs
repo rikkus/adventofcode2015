@@ -8,9 +8,6 @@
 				tokens[1],
 				@"(?<name>\w+):\s(?<n>\d+)",
 				RegexOptions.ExplicitCapture
-				| RegexOptions.IgnorePatternWhitespace
-				| RegexOptions.CultureInvariant
-				| RegexOptions.Compiled
 			)
 			.Cast<Match>()
 			.Select
